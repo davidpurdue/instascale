@@ -33,8 +33,8 @@ do
     echo "Working on $image"
 
     # Get the dimensions of the original image
-    old_width=$(magick identify -format "%[fx:w]" $image)
-    old_height=$(magick identify -format "%[fx:h]" $image)
+    old_width=$(magick identify -format "%[fx:w]" "$image")
+    old_height=$(magick identify -format "%[fx:h]" "$image")
 
     # Calculate the dimentions of the new image
     new_width=1080
@@ -51,5 +51,5 @@ do
     fi
 
     # Resize the image
-    magick $image -resize ${new_width}x${new_height} -background white -compose Copy -gravity center -extent ${new_width}x${new_height} -quality 90 Instagram/$image
+    magick "$image" -resize ${new_width}x${new_height} -background white -compose Copy -gravity center -extent ${new_width}x${new_height} -quality 90 "Instagram/$image"
 done
