@@ -30,6 +30,12 @@ fi
 
 for image in *.jpg
 do
+    if [ -f "Instagram/$image" ]
+    then
+        echo "Skipping $image - already done"
+        continue
+    fi
+
     echo "Working on $image"
 
     # Get the dimensions of the original image
